@@ -36,7 +36,7 @@ diff -urN third_party/hbase/include.mk third_party/hbase/include.mk
 +ASYNCHBASE_VERSION := 1.5.0-rc2
  ASYNCHBASE := third_party/hbase/asynchbase-$(ASYNCHBASE_VERSION).jar
 -ASYNCHBASE_BASE_URL := $(OPENTSDB_THIRD_PARTY_BASE_URL)
-+ASYNCHBASE_BASE_URL := http://tsunanet.net/~tsuna/asynchbase/asynchbase-$(ASYNCHBASE_VERSION).jar
++ASYNCHBASE_BASE_URL := http://tsunanet.net/~tsuna/asynchbase
 +# $(OPENTSDB_THIRD_PARTY_BASE_URL)
  
  $(ASYNCHBASE): $(ASYNCHBASE).md5
