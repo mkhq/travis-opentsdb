@@ -3,7 +3,7 @@
 wget http://apache.mirrors.lucidnetworks.net/hbase/hbase-0.96.0/hbase-0.96.0-hadoop2-bin.tar.gz
 tar xzf hbase-0.96.0-hadoop2-bin.tar.gz
 cd hbase-0.96.0-hadoop2
-patch -p0 < ../scripts/ci/hbase-conf-0.96.patch
+patch -p0 < ../hbase-conf-0.96.patch
 
 # fix ssh access, starting hbase does ssh to localhost
 mv ~/.ssh/id_rsa ~/.ssh/id_rsa.bak
