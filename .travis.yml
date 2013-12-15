@@ -11,5 +11,5 @@ before_script:
   - ./start-opentsdb.sh
 
 after_script:
-  - ./stop-hbase.sh
   - ./stop-opentsdb.sh
+  - ./stop-hbase.sh
