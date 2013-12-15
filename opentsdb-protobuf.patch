@@ -21,7 +21,7 @@ index b2a8dcd..310be91 100644
  	$(LOGBACK_CLASSIC)	\
  	$(LOGBACK_CORE)	\
  	$(NETTY)	\
-+        $(PROTOBUF)	\
++  $(PROTOBUF)	\
  	$(SLF4J_API)	\
  	$(SUASYNC)	\
  	$(ZOOKEEPER)

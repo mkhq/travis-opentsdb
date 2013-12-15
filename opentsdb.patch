@@ -1,0 +1,43 @@
+diff -urN src/opentsdb.conf src/opentsdb.conf
+--- src/opentsdb.conf	2013-09-30 19:42:36.000000000 +0200
++++ src/opentsdb.conf	2013-12-15 19:48:29.617622425 +0100
+@@ -33,10 +33,15 @@
+ # *** REQUIRED ***
+ tsd.http.cachedir =
+ 
++tsd.http.request.enable_chunked = true
++tsd.http.request.max_chunk = 5242880
++
+ # --------- CORE ----------
+ # Whether or not to automatically create UIDs for new metric types, default
+ # is False
+-#tsd.core.auto_create_metrics = false
++tsd.core.auto_create_metrics = true
++
++tsd.core.timezone = UTC
+ 
+ # --------- STORAGE ----------
+ # Whether or not to enable data compaction in HBase, default is True
+@@ -57,4 +62,4 @@
+ 
+ # A space separated list of Zookeeper hosts to connect to, with or without 
+ # port specifiers, default is "localhost"
+-#tsd.storage.hbase.zk_quorum = localhost
+\ No newline at end of file
++#tsd.storage.hbase.zk_quorum = localhost
+diff -urN third_party/hbase/include.mk third_party/hbase/include.mk
+--- third_party/hbase/include.mk	2013-08-15 18:21:10.000000000 +0200
++++ third_party/hbase/include.mk	2013-12-15 19:38:20.046599720 +0100
+@@ -13,9 +13,10 @@
+ # You should have received a copy of the GNU Lesser General Public License
+ # along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ 
+-ASYNCHBASE_VERSION := 1.4.1
++ASYNCHBASE_VERSION := 1.5.0-rc2
+ ASYNCHBASE := third_party/hbase/asynchbase-$(ASYNCHBASE_VERSION).jar
+-ASYNCHBASE_BASE_URL := $(OPENTSDB_THIRD_PARTY_BASE_URL)
++ASYNCHBASE_BASE_URL := http://tsunanet.net/~tsuna/asynchbase/asynchbase-$(ASYNCHBASE_VERSION).jar
++# $(OPENTSDB_THIRD_PARTY_BASE_URL)
+ 
+ $(ASYNCHBASE): $(ASYNCHBASE).md5
+ 	set dummy "$(ASYNCHBASE_BASE_URL)" "$(ASYNCHBASE)"; shift; $(FETCH_DEPENDENCY)
