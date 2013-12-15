@@ -1,0 +1,19 @@
+
+install:
+
+  - sudo apt-get install zookeeper
+  - sudo apt-get install zookeeperd
+  - sudo apt-get install gnuplot
+  - ./install-hbase.sh
+  - ./install-opentsdb.sh
+
+before_script:
+
+  - sudo service zookeeper restart
+  - ./start-hbase.sh
+  - ./start-opentsdb.sh
+
+after_script:
+
+  - ./scripts/ci/stop-hbase.sh
+  - ./scripts/ci/stop-opentsdb.sh

@@ -1,0 +1,26 @@
+--- src/opentsdb.conf	2013-09-30 19:42:36.000000000 +0200
++++ src/opentsdb.conf	2013-12-11 14:42:38.161474479 +0100
+@@ -33,10 +33,15 @@
+ # *** REQUIRED ***
+ tsd.http.cachedir =
+ 
++tsd.http.request.enable_chunked = true
++tsd.http.request.max_chunk = 5242880
++
+ # --------- CORE ----------
+ # Whether or not to automatically create UIDs for new metric types, default
+ # is False
+-#tsd.core.auto_create_metrics = false
++tsd.core.auto_create_metrics = true
++
++tsd.core.timezone = UTC
+ 
+ # --------- STORAGE ----------
+ # Whether or not to enable data compaction in HBase, default is True
+@@ -57,4 +62,4 @@
+ 
+ # A space separated list of Zookeeper hosts to connect to, with or without 
+ # port specifiers, default is "localhost"
+-#tsd.storage.hbase.zk_quorum = localhost
+\ No newline at end of file
++#tsd.storage.hbase.zk_quorum = localhost
