@@ -5,6 +5,6 @@ tar xzf opentsdb-2.0.0.tar.gz
 cd opentsdb-2.0.0
 patch -p1 < ../opentsdb-protobuf.patch
 patch -p0 < ../opentsdb-conf.patch
-cp ../asynchbase-1.4.1.jar build/third_party/hbase/
 ./build.sh
+cp ../asynchbase-1.4.1.jar build/third_party/hbase/
 cd ..
