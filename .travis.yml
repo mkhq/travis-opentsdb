@@ -10,6 +10,9 @@ before_script:
   - ./start-hbase.sh
   - ./start-opentsdb.sh
 
+script:
+  - echo '[{"metric":"test","timestamp":1384171200000,"value":500,"tags":{"a":"b"}}]' | curl -S -X POST localhost:4242/api/put -d @-
+
 after_script:
   - ./stop-opentsdb.sh
   - ./stop-hbase.sh
