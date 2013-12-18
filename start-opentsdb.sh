@@ -3,7 +3,7 @@
 cd opentsdb-2.0.0
 # create hbase tables
 echo "Create hbase tables"
-env JRUBY_OPTS= JRUBY_HOME= COMPRESSION=NONE HBASE_HOME=../hbase-0.96.0-hadoop2 ./src/create_table.sh
+env JRUBY_OPTS= ../hbase-0.96.0-hadoop2/bin/hbase shell ../create-opentsdb-tables.sh
 
 echo "Create tables wait..."
 sleep 10
